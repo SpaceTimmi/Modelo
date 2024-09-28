@@ -1,11 +1,23 @@
 // src/App.js
-import React from 'react';
+import React, { useState } from 'react';
+import NoteEditor from './components/NoteEditor';
 
 const App = () => {
+  const [windowProperties, setWinidowProperties] = useState({
+    position: {
+      x: 280,
+      y: 85, 
+    }, 
+    windowSize: {
+      // Default size
+      width: 650,
+      height: 440,
+    },
+  });
+    
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">Hello, World!</h1>
-      <p>This is your Chrome Extension with React and Tailwind!</p>
+    <div id='app' className='relative bg-red-100 min-h-lvh'>
+      <NoteEditor windowProperties={windowProperties} setwindowProperties={setWinidowProperties} />
     </div>
   );
 };
